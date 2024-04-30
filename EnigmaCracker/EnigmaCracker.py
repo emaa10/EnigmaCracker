@@ -51,7 +51,7 @@ if missing_vars:
     raise EnvironmentError(f"Missing environment variables: {', '.join(missing_vars)}")
 
 # Check if we've set the environment variable indicating we're in the correct CMD
-if os.environ.get("RUNNING_IN_NEW_CMD") != "TRUE":
+if os.environ.get("RUNNING_IN_NEW_CMD") != "FALSE":
     # Set the environment variable for the new CMD session
     os.environ["RUNNING_IN_NEW_CMD"] = "TRUE"
 
@@ -63,11 +63,11 @@ if os.environ.get("RUNNING_IN_NEW_CMD") != "TRUE":
         subprocess.run(f'start cmd.exe /K python "{__file__}"', shell=True)
 
     # For Linux
-    elif os_type == "Linux":
-        subprocess.run(f"gnome-terminal -- python3 {__file__}", shell=True)
+    #elif os_type == "Linux":
+        #subprocess.run(f"gnome-terminal -- python3 {__file__}", shell=True)
 
     # Exit this run, as we've opened a new CMD
-    sys.exit()
+    #sys.exit()
 
 
 def update_cmd_title():
