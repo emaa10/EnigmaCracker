@@ -144,7 +144,7 @@ def check_ETH_balance(address, etherscan_api_key, retries=3, delay=5):
                 logging.error(
                     f"Error checking balance, retrying in {delay} seconds: {str(e)}"
                 )
-                time.sleep(delay)
+                #time.sleep(delay)
             else:
                 logging.error("Error checking balance: %s", str(e))
                 return 0
